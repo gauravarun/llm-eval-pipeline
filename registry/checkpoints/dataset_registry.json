@@ -1,0 +1,19 @@
+{
+  "versions": [
+    {
+      "version_id": "v1",
+      "name": "default",
+      "checksum": "9681556ae4",
+      "num_tasks": 17,
+      "categories": [
+        "factual",
+        "math",
+        "reasoning",
+        "instruction_following",
+        "code",
+        "hallucination"
+      ],
+      "registered_at": "2026-03-24T08:46:39"
+    }
+  ]
+}

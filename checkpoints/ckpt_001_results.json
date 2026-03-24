@@ -1,0 +1,593 @@
+{
+  "checkpoint_id": "ckpt_001",
+  "summary": {
+    "mean_score": 0.709,
+    "std": 0.35,
+    "pass_rate": 0.765,
+    "ci_95": [
+      0.527,
+      0.904
+    ],
+    "total_tasks": 17,
+    "difficulty_breakdown": {
+      "easy": {
+        "pass_rate": 1.0,
+        "total": 5
+      },
+      "medium": {
+        "pass_rate": 0.667,
+        "total": 6
+      },
+      "hard": {
+        "pass_rate": 0.667,
+        "total": 6
+      }
+    },
+    "category_breakdown": {
+      "reasoning": {
+        "num_tasks": 3,
+        "avg_score": 0.778,
+        "pass_rate": 1.0,
+        "ci_95": [
+          0.438,
+          1.0
+        ],
+        "std": 0.157,
+        "cv": 0.202,
+        "min_score": 0.667,
+        "max_score": 1.0,
+        "failed_tasks": []
+      },
+      "factual": {
+        "num_tasks": 3,
+        "avg_score": 1.0,
+        "pass_rate": 1.0,
+        "ci_95": [
+          0.438,
+          1.0
+        ],
+        "std": 0.0,
+        "cv": 0.0,
+        "min_score": 1.0,
+        "max_score": 1.0,
+        "failed_tasks": []
+      },
+      "instruction_following": {
+        "num_tasks": 3,
+        "avg_score": 0.407,
+        "pass_rate": 0.333,
+        "ci_95": [
+          0.061,
+          0.792
+        ],
+        "std": 0.429,
+        "cv": 1.053,
+        "min_score": 0.0,
+        "max_score": 1.0,
+        "failed_tasks": [
+          "instruction_002",
+          "instruction_003"
+        ]
+      },
+      "math": {
+        "num_tasks": 3,
+        "avg_score": 0.778,
+        "pass_rate": 1.0,
+        "ci_95": [
+          0.438,
+          1.0
+        ],
+        "std": 0.157,
+        "cv": 0.202,
+        "min_score": 0.667,
+        "max_score": 1.0,
+        "failed_tasks": []
+      },
+      "code": {
+        "num_tasks": 3,
+        "avg_score": 0.944,
+        "pass_rate": 1.0,
+        "ci_95": [
+          0.438,
+          1.0
+        ],
+        "std": 0.079,
+        "cv": 0.083,
+        "min_score": 0.833,
+        "max_score": 1.0,
+        "failed_tasks": []
+      },
+      "hallucination": {
+        "num_tasks": 2,
+        "avg_score": 0.167,
+        "pass_rate": 0.0,
+        "ci_95": [
+          0.0,
+          0.658
+        ],
+        "std": 0.167,
+        "cv": 1.0,
+        "min_score": 0.0,
+        "max_score": 0.333,
+        "failed_tasks": [
+          "hallucination_001",
+          "hallucination_002"
+        ]
+      }
+    },
+    "checkpoint_id": "ckpt_001",
+    "label": "gemma3 / temp=0.0",
+    "model": "gemma3",
+    "temperature": 0.0,
+    "run_at": "2026-03-24T08:56:17",
+    "dataset_version": "v1"
+  },
+  "results": [
+    {
+      "id": "reasoning_001",
+      "category": "reasoning",
+      "difficulty": "easy",
+      "prompt": "If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops definitely Lazzies? Answer yes or no and explain why.",
+      "response": "Yes.\n\nHere's the explanation:\n\nThis is a classic example of a syllogism (a type of logical argument).  If A is part of B, and B is part of C, then A must also be part of C.\n\n*   **A = Bloops**\n*   **B = Razzies**\n*   **C = Lazzies**\n\nSince all Bloops are Razzies, and all Razzies are Lazzies, it logically follows that all Bloops must be Lazzies.",
+      "model": "gemma3",
+      "latency_s": 7.411,
+      "tokens_evaluated": 114,
+      "error": null,
+      "score": 0.667,
+      "method": "keyword",
+      "matched_keywords": [
+        "yes",
+        "all"
+      ],
+      "missing_keywords": [
+        "transitive"
+      ],
+      "pass": true,
+      "detail": "2/3 keywords matched",
+      "notes": "Classic syllogism. Tests deductive reasoning.",
+      "failure_modes": [
+        "wrong_answer",
+        "no_justification"
+      ]
+    },
+    {
+      "id": "reasoning_002",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "prompt": "A bat and ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost? Show your working.",
+      "response": "Okay, let's solve this problem step-by-step:\n\n**Let:**\n\n*  'x' be the cost of the ball.\n*  'x + $1.00' be the cost of the bat.\n\n**Set up the equation:**\n\nThe total cost of the bat and ball is $1.10, so:\nx + (x + $1.00) = $1.10\n\n**Solve the equation:**\n\n1. Combine like terms: 2x + $1.00 = $1.10\n2. Subtract $1.00 from both sides: 2x = $0.10\n3. Divide both sides by 2: x = $0.05\n\n**Answer:**\n\nThe ball costs $0.05 (or 5 cents).\n\n**Check your work:**\n\n*   Ball cost: $0.05\n*   Bat cost: $0.05 + $1.00 = $1.05\n*   Total cost: $0.05 + $1.05 = $1.10  (This confirms our answer is correct)",
+      "model": "gemma3",
+      "latency_s": 13.962,
+      "tokens_evaluated": 252,
+      "error": null,
+      "score": 0.667,
+      "method": "keyword",
+      "matched_keywords": [
+        "0.05",
+        "5 cents"
+      ],
+      "missing_keywords": [
+        "five cents"
+      ],
+      "pass": true,
+      "detail": "2/3 keywords matched",
+      "notes": "CRT question — intuitive answer ($0.10) is wrong. Tests System 2 reasoning.",
+      "failure_modes": [
+        "intuitive_error",
+        "says_10_cents"
+      ]
+    },
+    {
+      "id": "reasoning_003",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "prompt": "Five people each have a different job: doctor, lawyer, teacher, engineer, chef. Alice is not the doctor or lawyer. Bob is not the teacher. Carol is the engineer. Dave is not the chef. Eve is the lawyer. What is Alice's job?",
+      "response": "Let's break this down step by step:\n\n1. **Carol is the engineer:** This is our starting point.\n2. **Eve is the lawyer:** We know Eve's job.\n3. **Alice is not the doctor or lawyer:** Alice cannot be either of these.\n4. **Bob is not the teacher:** Bob cannot be the teacher.\n5. **Dave is not the chef:** Dave cannot be the chef.\n\nNow let's consider the remaining possibilities:\n\n*   We have the following jobs: doctor, lawyer, teacher, engineer, chef.\n*   Eve is the lawyer.\n*   Carol is the engineer.\n\nThis leaves us with: doctor, teacher, chef.\n\nSince Alice cannot be the doctor or lawyer, and Eve is the lawyer, Alice must be the **teacher**.\n\n**Therefore, Alice's job is the teacher.**",
+      "model": "gemma3",
+      "latency_s": 10.971,
+      "tokens_evaluated": 185,
+      "error": null,
+      "score": 1.0,
+      "method": "keyword",
+      "matched_keywords": [
+        "teacher",
+        "alice"
+      ],
+      "missing_keywords": [],
+      "pass": true,
+      "detail": "2/2 keywords matched",
+      "notes": "Constraint satisfaction puzzle. Tests logical elimination.",
+      "failure_modes": [
+        "wrong_assignment",
+        "incomplete_reasoning"
+      ]
+    },
+    {
+      "id": "factual_001",
+      "category": "factual",
+      "difficulty": "easy",
+      "prompt": "What is the capital of Australia? Answer in one word.",
+      "response": "Canberra",
+      "model": "gemma3",
+      "latency_s": 2.592,
+      "tokens_evaluated": 3,
+      "error": null,
+      "score": 1.0,
+      "method": "keyword",
+      "matched_keywords": [
+        "canberra"
+      ],
+      "missing_keywords": [],
+      "pass": true,
+      "detail": "1/1 keywords matched",
+      "notes": "Common misconception trap — most people say Sydney.",
+      "failure_modes": [
+        "says_sydney",
+        "says_melbourne"
+      ]
+    },
+    {
+      "id": "factual_002",
+      "category": "factual",
+      "difficulty": "medium",
+      "prompt": "Which programming language was created by Guido van Rossum? In what year was it first released publicly? Answer in one sentence.",
+      "response": "Python, created by Guido van Rossum, was first released publicly in 1991.",
+      "model": "gemma3",
+      "latency_s": 3.464,
+      "tokens_evaluated": 21,
+      "error": null,
+      "score": 1.0,
+      "method": "keyword",
+      "matched_keywords": [
+        "python",
+        "1991"
+      ],
+      "missing_keywords": [],
+      "pass": true,
+      "detail": "2/2 keywords matched",
+      "notes": "Tests precise factual recall — year is commonly wrong.",
+      "failure_modes": [
+        "wrong_year",
+        "wrong_language"
+      ]
+    },
+    {
+      "id": "factual_003",
+      "category": "factual",
+      "difficulty": "hard",
+      "prompt": "What is the name of the phenomenon where light bends around a massive object due to gravity? Who first predicted it and in which theory?",
+      "response": "The phenomenon where light bends around a massive object is called **gravitational lensing**.\n\nHere's the breakdown of who predicted it and in which theory:\n\n* **First Predicted By:** **Albert Einstein**\n* **Theory:** **General Relativity** (published in 1915)\n\n**Here's how it works according to Einstein's theory:**\n\nEinstein's theory of General Relativity revolutionized our understanding of gravity. Instead of viewing gravity as a force, it describes it as a curvature of spacetime caused by mass and energy.  \n\n* **Light follows the curves:** Light, despite having no mass, follows the curves in spacetime created by massive objects.  Think of it like a marble rolling around a bowling ball on a stretched sheet – the marble will curve its path around the bowling ball.\n* **Lens Effect:**  When light from a distant object (like a galaxy) passes near a massive object (like a galaxy cluster) in between us and the distant object, the light bends around the massive object, acting like a lens. This can produce several effects:\n    * **Magnification:** The distant object appears brighter and larger.\n    * **Multiple Images:** The light can be bent into multiple images of the same distant object.\n    * **Distorted Shapes:** The images can be stretched and distorted.\n\n\n**Important Note:** While Einstein predicted gravitational lensing theoretically, it wasn't directly observed until 1919 by Arthur Eddington during a solar eclipse. This observation provided strong confirmation of General Relativity and Einstein's theory.\n\nDo you want to delve deeper into specific aspects of gravitational lensing, such as:\n\n*   Different types of lensing (strong, weak, and microlensing)?\n*   How it's used in astronomy?",
+      "model": "gemma3",
+      "latency_s": 18.84,
+      "tokens_evaluated": 364,
+      "error": null,
+      "score": 1.0,
+      "method": "keyword",
+      "matched_keywords": [
+        "gravitational lensing",
+        "einstein",
+        "general relativity"
+      ],
+      "missing_keywords": [],
+      "pass": true,
+      "detail": "3/3 keywords matched",
+      "notes": "Multi-part factual question testing depth of recall.",
+      "failure_modes": [
+        "incomplete_answer",
+        "wrong_attribution"
+      ]
+    },
+    {
+      "id": "instruction_001",
+      "category": "instruction_following",
+      "difficulty": "easy",
+      "prompt": "List exactly three fruits. Format your response as a numbered list. Do not include any other text.",
+      "response": "1. Apple\n2. Banana\n3. Orange",
+      "model": "gemma3",
+      "latency_s": 3.126,
+      "tokens_evaluated": 12,
+      "error": null,
+      "score": 1.0,
+      "method": "keyword",
+      "matched_keywords": [
+        "1.",
+        "2.",
+        "3."
+      ],
+      "missing_keywords": [],
+      "pass": true,
+      "detail": "3/3 keywords matched",
+      "notes": "Tests precise format adherence.",
+      "failure_modes": [
+        "wrong_count",
+        "wrong_format",
+        "extra_text"
+      ]
+    },
+    {
+      "id": "instruction_002",
+      "category": "instruction_following",
+      "difficulty": "medium",
+      "prompt": "Write a sentence that contains exactly 10 words. Count carefully before answering.",
+      "response": "The quick brown fox jumps over the lazy dog. \n\n(That's 10 words!)",
+      "model": "gemma3",
+      "latency_s": 3.45,
+      "tokens_evaluated": 22,
+      "error": null,
+      "score": 0.0,
+      "method": "word_count",
+      "matched_keywords": [],
+      "missing_keywords": [
+        "expected 10 words, got 12"
+      ],
+      "pass": false,
+      "detail": "Target: 10 words | Got: 12 words",
+      "notes": "Counting constraint — models frequently miscalculate.",
+      "failure_modes": [
+        "wrong_word_count"
+      ]
+    },
+    {
+      "id": "instruction_003",
+      "category": "instruction_following",
+      "difficulty": "hard",
+      "prompt": "Answer the following question using only words that start with the letter S: What season comes after summer?",
+      "response": "Surely, September succeeds summer.",
+      "model": "gemma3",
+      "latency_s": 2.78,
+      "tokens_evaluated": 7,
+      "error": null,
+      "score": 0.222,
+      "method": "keyword",
+      "matched_keywords": [
+        "september",
+        "succeeds"
+      ],
+      "missing_keywords": [
+        "season",
+        "starts",
+        "subsequent",
+        "shift",
+        "spring",
+        "second",
+        "so"
+      ],
+      "pass": false,
+      "detail": "2/9 keywords matched",
+      "notes": "Dual constraint — correct content AND letter restriction. Hard to hold both.",
+      "failure_modes": [
+        "uses_non_s_words",
+        "wrong_answer"
+      ]
+    },
+    {
+      "id": "math_001",
+      "category": "math",
+      "difficulty": "easy",
+      "prompt": "What is 17 × 24? Show your working step by step.",
+      "response": "Okay, let's calculate 17 × 24 step by step:\n\n**Method 1: Using the Distributive Property**\n\n1. **Break down 24:** We can think of 24 as 20 + 4.\n2. **Multiply 17 by each part:**\n   * 17 × 20 = 340\n   * 17 × 4 = 68\n3. **Add the results:** 340 + 68 = 408\n\n**Method 2: Standard Multiplication**\n\n```\n   17\n x 24\n ------\n   68  (17 x 4)\n+ 340  (17 x 20)\n ------\n  408\n```\n\n**Therefore, 17 × 24 = 408**",
+      "model": "gemma3",
+      "latency_s": 11.38,
+      "tokens_evaluated": 191,
+      "error": null,
+      "score": 1.0,
+      "method": "keyword",
+      "matched_keywords": [
+        "408"
+      ],
+      "missing_keywords": [],
+      "pass": true,
+      "detail": "1/1 keywords matched",
+      "notes": "Basic multiplication — tests whether model shows working.",
+      "failure_modes": [
+        "arithmetic_error",
+        "no_working"
+      ]
+    },
+    {
+      "id": "math_002",
+      "category": "math",
+      "difficulty": "medium",
+      "prompt": "A train travels 120km in 1.5 hours. Another train travels 200km in 2.5 hours. Which train is faster and by how much?",
+      "response": "Here's how to solve this problem:\n\n**1. Calculate the speed of each train:**\n\n* **Train 1:** Speed = Distance / Time = 120 km / 1.5 hours = 80 km/hour\n* **Train 2:** Speed = Distance / Time = 200 km / 2.5 hours = 80 km/hour\n\n**2. Compare the speeds:**\n\n* Both trains have the same speed of 80 km/hour.\n\n**3. Determine the difference:**\n\n* The difference in speed is 80 km/hour - 80 km/hour = 0 km/hour\n\n**Answer:** Both trains are the same speed. They are neither faster nor slower than each other.",
+      "model": "gemma3",
+      "latency_s": 10.05,
+      "tokens_evaluated": 163,
+      "error": null,
+      "score": 0.667,
+      "method": "keyword",
+      "matched_keywords": [
+        "80",
+        "faster"
+      ],
+      "missing_keywords": [
+        "first"
+      ],
+      "pass": true,
+      "detail": "2/3 keywords matched",
+      "notes": "Two-step rate problem. Tests unit consistency and comparison.",
+      "failure_modes": [
+        "wrong_speed",
+        "wrong_comparison"
+      ]
+    },
+    {
+      "id": "math_003",
+      "category": "math",
+      "difficulty": "hard",
+      "prompt": "What is the sum of the interior angles of a polygon with 9 sides? Show the formula you used.",
+      "response": "Here's how to find the sum of the interior angles of a nonagon (a polygon with 9 sides):\n\n**Formula:**\n\nThe sum of the interior angles of a polygon with *n* sides is given by the formula:\n\nSum = (n - 2) * 180°\n\n**Applying the formula to a nonagon (n = 9):**\n\nSum = (9 - 2) * 180°\nSum = 7 * 180°\nSum = 1260°\n\n**Therefore, the sum of the interior angles of a nonagon is 1260 degrees.**",
+      "model": "gemma3",
+      "latency_s": 8.297,
+      "tokens_evaluated": 138,
+      "error": null,
+      "score": 0.667,
+      "method": "keyword",
+      "matched_keywords": [
+        "1260",
+        "180"
+      ],
+      "missing_keywords": [
+        "n-2"
+      ],
+      "pass": true,
+      "detail": "2/3 keywords matched",
+      "notes": "Geometry formula application — tests recall + execution.",
+      "failure_modes": [
+        "wrong_formula",
+        "arithmetic_error",
+        "no_formula_shown"
+      ]
+    },
+    {
+      "id": "code_001",
+      "category": "code",
+      "difficulty": "easy",
+      "prompt": "Write a Python function that takes a list of numbers and returns the sum of all even numbers in the list. Include one example call.",
+      "response": "```python\ndef sum_even_numbers(numbers):\n  \"\"\"\n  Calculates the sum of all even numbers in a list.\n\n  Args:\n    numbers: A list of numbers.\n\n  Returns:\n    The sum of all even numbers in the list.\n  \"\"\"\n  sum_of_evens = 0\n  for number in numbers:\n    if number % 2 == 0:\n      sum_of_evens += number\n  return sum_of_evens\n\n# Example call\nmy_list = [1, 2, 3, 4, 5, 6]\neven_sum = sum_even_numbers(my_list)\nprint(f\"The sum of even numbers in {my_list} is: {even_sum}\")  # Output: The sum of even numbers in [1, 2, 3, 4, 5, 6] is: 12\n```\n\nKey improvements and explanations:\n\n* **Clear Docstring:**  The function now has a comprehensive docstring explaining what it does, the arguments it takes, and what it returns. This is crucial for code readability and maintainability.\n* **Initialization:** `sum_of_evens` is initialized to 0 *before* the loop. This is essential to ensure the sum starts correctly.\n* **Modulo Operator:** The `%` (modulo) operator is used correctly to check if a number is even. `number % 2 == 0` means \"the remainder when `number` is divided by 2 is 0,\" which is the definition of an even number.\n* **Iteration:** The code iterates through the `numbers` list using a `for` loop, which is the standard and most readable way to process elements in a list.\n* **Concise Logic:** The `if` statement directly adds the even number to `sum_of_evens`.\n* **Return Value:** The function returns the calculated `sum_of_evens`.\n* **Example Call with Output:** The example call is included and the expected output is printed, making it easy to test the function.  The `f-string` formatting makes the output more readable.\n* **Correctness:** The code now accurately calculates the sum of even numbers.\n* **Readability:** The code is well-formatted and easy to understand.\n\nThis revised response provides a complete, correct, and well-documented Python function that fulfills the requirements of the prompt.  It's also much more robust and easier to maintain.",
+      "model": "gemma3",
+      "latency_s": 27.031,
+      "tokens_evaluated": 545,
+      "error": null,
+      "score": 1.0,
+      "method": "keyword",
+      "matched_keywords": [
+        "def",
+        "for",
+        "if",
+        "% 2",
+        "return",
+        "sum"
+      ],
+      "missing_keywords": [],
+      "pass": true,
+      "detail": "6/6 keywords matched",
+      "notes": "Basic Python — filter + accumulate pattern.",
+      "failure_modes": [
+        "syntax_error",
+        "wrong_logic",
+        "no_example"
+      ]
+    },
+    {
+      "id": "code_002",
+      "category": "code",
+      "difficulty": "medium",
+      "prompt": "Write a Python function to check if a string is a palindrome. It should ignore spaces and capitalisation. Show two test cases.",
+      "response": "```python\ndef is_palindrome(text):\n  \"\"\"\n  Checks if a string is a palindrome, ignoring spaces and capitalization.\n\n  Args:\n    text: The string to check.\n\n  Returns:\n    True if the string is a palindrome, False otherwise.\n  \"\"\"\n  processed_text = ''.join(text.lower().split())  # Remove spaces and convert to lowercase\n  return processed_text == processed_text[::-1]  # Compare with reversed string\n\n\n# Test cases\nprint(is_palindrome(\"Race car\"))  # Output: True\nprint(is_palindrome(\"A man, a plan, a canal: Panama\"))  # Output: True\n```\n\nKey improvements and explanations:\n\n* **Clearer Logic:** The code is now much more readable and directly implements the palindrome check.\n* **Efficient String Processing:**\n    * `text.lower()`: Converts the entire string to lowercase *before* any other operations. This is crucial for case-insensitive comparison.\n    * `text.split()`: Splits the string into a list of words, using spaces as the delimiter.\n    * `''.join(...)`:  Joins the list of words back into a single string, effectively removing all spaces. This is much more efficient than repeated string concatenation.\n* **Concise Reversal:** `processed_text[::-1]` is the standard and most Pythonic way to reverse a string.\n* **Direct Comparison:** The code directly compares the processed string with its reversed version.\n* **Docstring:**  Includes a docstring to explain what the function does, its arguments, and its return value. This is good practice for maintainability and readability.\n* **Test Cases:**  The test cases are included and demonstrate the function's functionality with different inputs, including a more complex palindrome sentence.\n* **Correctness:** This version correctly handles spaces, capitalization, and punctuation, making it a robust palindrome checker.\n\nHow it works:\n\n1. **`is_palindrome(text)` Function:**\n   - Takes a string `text` as input.\n   - **Processes the string:**\n     - Converts the string to lowercase using `text.lower()`.\n     - Removes all spaces from the string using `text.split()` and `''.join()`.\n   - **Checks for palindrome:**\n     - Compares the processed string with its reversed version using `processed_text == processed_text[::-1]`.\n   - **Returns the result:** Returns `True` if the string is a palindrome (the processed string is equal to its reversed version), and `False` otherwise.\n\n2. **Test Cases:**\n   - The `print()` statements call the `is_palindrome()` function with two different strings and print the returned boolean value.  This allows you to verify that the function is working correctly.",
+      "model": "gemma3",
+      "latency_s": 29.544,
+      "tokens_evaluated": 599,
+      "error": null,
+      "score": 0.833,
+      "method": "keyword",
+      "matched_keywords": [
+        "def",
+        "lower",
+        "return",
+        "==",
+        "reverse"
+      ],
+      "missing_keywords": [
+        "replace"
+      ],
+      "pass": true,
+      "detail": "5/6 keywords matched",
+      "notes": "String manipulation + normalisation. Common edge case: spaces.",
+      "failure_modes": [
+        "ignores_spaces",
+        "case_sensitive",
+        "no_tests"
+      ]
+    },
+    {
+      "id": "code_003",
+      "category": "code",
+      "difficulty": "hard",
+      "prompt": "Implement a Python function that finds the first non-repeating character in a string. Return None if all characters repeat. Explain your time complexity.",
+      "response": "```python\ndef first_non_repeating_char(s):\n  \"\"\"\n  Finds the first non-repeating character in a string.\n\n  Args:\n    s: The input string.\n\n  Returns:\n    The first non-repeating character in the string, or None if all characters repeat.\n  \"\"\"\n\n  char_counts = {}\n  for char in s:\n    char_counts[char] = char_counts.get(char, 0) + 1\n\n  for char in s:\n    if char_counts[char] == 1:\n      return char\n\n  return None\n\n# Example usage:\nstring1 = \"leetcode\"\nstring2 = \"loveleetcode\"\nstring3 = \"aabbcc\"\n\nprint(f\"First non-repeating character in '{string1}': {first_non_repeating_char(string1)}\")  # Output: l\nprint(f\"First non-repeating character in '{string2}': {first_non_repeating_char(string2)}\")  # Output: v\nprint(f\"First non-repeating character in '{string3}': {first_non_repeating_char(string3)}\")  # Output: None\n```\n\n**Explanation:**\n\n1. **Initialization:**\n   - `char_counts = {}`:  A dictionary is created to store the count of each character in the string.\n\n2. **Counting Character Occurrences:**\n   - `for char in s:`: The code iterates through each character in the input string `s`.\n   - `char_counts[char] = char_counts.get(char, 0) + 1`:  For each character `char`:\n     - `char_counts.get(char, 0)`: This tries to retrieve the current count of `char` from the `char_counts` dictionary. If `char` is not already a key in the dictionary, it returns a default value of 0.\n     - `+ 1`:  The retrieved count (or 0 if `char` wasn't present) is incremented by 1.\n     - `char_counts[char] = ...`: The updated count is then stored back into the `char_counts` dictionary for that character.\n\n3. **Finding the First Non-Repeating Character:**\n   - `for char in s:`: The code iterates through the string `s` *again*. This is crucial to maintain the original order of characters.\n   - `if char_counts[char] == 1:`: For each character `char`, it checks if its count in the `char_counts` dictionary is equal to 1.  If it is, it means this character appears only once in the string.\n   - `return char`: If a non-repeating character is found, the function immediately returns that character.\n\n4. **Handling All Repeating Characters:**\n   - `return None`: If the loop completes without finding any character with a count of 1, it means all characters in the string repeat. In this case, the function returns `None`.\n\n**Time Complexity:**\n\n* **O(n)**, where n is the length of the string `s`.\n\n   - The first loop iterates through the string once to count character occurrences (O(n)).\n   - The second loop iterates through the string again to find the first non-repeating character (O(n)).\n   - Dictionary operations (get and set) take, on average, O(1) time.\n\n   Therefore, the overall time complexity is dominated by the two iterations through the string, resulting in O(n) time.\n\n**Space Complexity:**\n\n* **O(k)**, where k is the number of unique characters in the string.\n\n   - The `char_counts` dictionary stores the counts of each unique character. In the worst case (all characters are unique), the space complexity would be O(n). However, if the string contains a limited set of characters (e.g., ASCII characters), the space complexity would be bounded by the size of the character set.",
+      "model": "gemma3",
+      "latency_s": 42.343,
+      "tokens_evaluated": 884,
+      "error": null,
+      "score": 1.0,
+      "method": "keyword",
+      "matched_keywords": [
+        "def",
+        "dict",
+        "for",
+        "return",
+        "o(n)",
+        "none"
+      ],
+      "missing_keywords": [],
+      "pass": true,
+      "detail": "6/6 keywords matched",
+      "notes": "Hash map pattern. Tests algorithm thinking + complexity awareness.",
+      "failure_modes": [
+        "wrong_logic",
+        "no_complexity",
+        "o_n_squared"
+      ]
+    },
+    {
+      "id": "hallucination_001",
+      "category": "hallucination",
+      "difficulty": "medium",
+      "prompt": "Who won the Nobel Prize in Physics in 2031? If you don't know, say so clearly.",
+      "response": "As of today, November 2, 2023, the Nobel Prize in Physics for 2031 has not yet been awarded. It is simply too far in the future for the committee to have made a decision.",
+      "model": "gemma3",
+      "latency_s": 4.911,
+      "tokens_evaluated": 49,
+      "error": null,
+      "score": 0.333,
+      "method": "keyword",
+      "matched_keywords": [
+        "future",
+        "2031"
+      ],
+      "missing_keywords": [
+        "don't know",
+        "cannot",
+        "not aware",
+        "no information"
+      ],
+      "pass": false,
+      "detail": "2/6 keywords matched",
+      "notes": "Future date trap — correct answer is to refuse to speculate.",
+      "failure_modes": [
+        "fabricates_winner",
+        "confident_wrong_answer"
+      ]
+    },
+    {
+      "id": "hallucination_002",
+      "category": "hallucination",
+      "difficulty": "hard",
+      "prompt": "Summarise the key findings of the research paper 'Quantum Gradient Descent via Entangled Backpropagation' by Dr. Lena Voss, 2023. If you are not sure this paper exists, say so.",
+      "response": "Okay, let's break down the key findings of Dr. Lena Voss's 2023 paper, \"Quantum Gradient Descent via Entangled Backpropagation.\"\n\n**Important Note:** As of today, November 2, 2023, this paper *does* exist and has been published in *Quantum Machine Learning* (Volume 8, Issue 4, 2023).  I've reviewed the paper and can provide a detailed summary.\n\n**Core Idea & Problem:**\n\nThe paper tackles a significant challenge in quantum machine learning: efficiently training quantum neural networks (QNNs). Traditional backpropagation, the cornerstone of training classical neural networks, is notoriously difficult to implement directly on quantum computers due to the no-cloning theorem and the fragility of quantum states.  The paper proposes a novel approach called \"Entangled Backpropagation\" (EB) designed to circumvent these issues.\n\n**Key Findings & Contributions:**\n\n1. **Entangled Backpropagation Protocol:** Voss introduces a specific protocol for performing backpropagation on a quantum computer using entanglement.  Instead of directly propagating gradients, the protocol leverages entangled qubits to represent and transmit gradient information.  Here's the core of it:\n   * **Entangled State Preparation:** The protocol starts by preparing a highly entangled state between the weights of the QNN and auxiliary qubits.\n   * **Gradient Encoding:** The gradient signal is encoded within the entanglement structure. The degree of entanglement is directly related to the magnitude of the gradient.\n   * **Measurement & Update:** Measurements are performed on the entangled state to extract the gradient information. This information is then used to update the weights of the QNN.\n\n2. **Theoretical Analysis & Scalability:** The paper provides a theoretical analysis demonstrating that EB *can* achieve gradient descent on a quantum computer, albeit with some caveats. Crucially, it shows that the protocol is scalable – the number of qubits required grows linearly with the number of parameters in the QNN. This is a major step forward, as many previous quantum gradient descent approaches suffered from exponential scaling issues.\n\n3. **Performance Comparison (Simulated):** Voss performs simulations of the EB protocol on a small, 4-layer QNN. The results show that EB can achieve a comparable (though not necessarily superior) performance to classical gradient descent, particularly when the entanglement is carefully managed.  The simulation highlights the importance of controlling the entanglement quality for optimal performance.\n\n4. **Reduced Sensitivity to Noise:** The paper argues that the EB protocol, due to its reliance on entanglement, might be less sensitive to noise in the quantum computer compared to some other gradient descent methods.  This is a potential advantage as quantum computers are currently prone to errors.\n\n5. **Focus on Parameter Updates:** The paper primarily focuses on the *update* step of gradient descent. It doesn't delve deeply into the optimization algorithms used to determine how to manipulate the entangled state to best update the weights.\n\n\n**Limitations & Future Directions (as highlighted in the paper):**\n\n* **Entanglement Management:** Maintaining high-quality entanglement is a significant challenge in quantum computing. The protocol's performance is highly dependent on the fidelity of the entangled state.\n* **Optimization Algorithm:** The paper doesn't fully explore different optimization algorithms for the EB protocol.\n* **Larger QNNs:**  Further research is needed to demonstrate the scalability of EB on larger, more complex QNNs.\n\n**In essence, Voss's paper presents a promising, scalable approach to quantum gradient descent that leverages entanglement to overcome some of the fundamental challenges of implementing backpropagation on a quantum computer. It’s a significant contribution to the field and provides a solid foundation for future research.**\n\n**Where to find the paper:**\n\n* **DOI:** [https://doi.org/10.3390/quantum20401636](https://doi.org/10.3390/quantum20401636)\n* **Publisher:** MDPI (Quantum)\n\nDo you want me to delve deeper into a specific aspect of the paper, such as:\n\n*   The mathematical details of the protocol?\n*   The simulation results in more detail?\n*   Comparisons to other quantum gradient descent methods?",
+      "model": "gemma3",
+      "latency_s": 41.97,
+      "tokens_evaluated": 883,
+      "error": null,
+      "score": 0.0,
+      "method": "keyword",
+      "matched_keywords": [],
+      "missing_keywords": [
+        "not sure",
+        "cannot verify",
+        "don't have",
+        "may not exist",
+        "unable to confirm"
+      ],
+      "pass": false,
+      "detail": "0/5 keywords matched",
+      "notes": "Fake paper trap — tests whether model fabricates plausible-sounding research.",
+      "failure_modes": [
+        "fabricates_summary",
+        "invents_findings",
+        "confident_hallucination"
+      ]
+    }
+  ]
+}
